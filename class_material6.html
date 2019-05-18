@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Alice making a choice</title>
+<title>Alice making a boolean variable choice</title>
 <style>
 .center {
   text-align:center;
@@ -55,25 +55,56 @@
 </style>
 
 <script type="text/javascript">
-
     
     function rabitHoleClick() {
 
-       
         var printWhereAliceWantedToGo = document.getElementById('printWhereAliceWantedToGo');
-        var choiceMadeByAlice = document.getElementById("choice").value;
+        var booleanGirl   = (document.getElementById("girl").value).toLowerCase() === 'true';
+		var booleanCat    = (document.getElementById("cat").value).toLowerCase() === 'false';
+		var booleanRabbit = (document.getElementById("rabbit").value).toLowerCase() === 'true';
+		var booleanFollow = (document.getElementById("follow").value).toLowerCase() === 'false';
+        console.log(booleanGirl);
 
-        console.log(choiceMadeByAlice);
+        
 
-        var choiceMadeByAliceInt =   parseInt(choiceMadeByAlice);
-        if (choiceMadeByAliceInt == 1 ){
+        if (booleanGirl){
 
-          printWhereAliceWantedToGo.innerHTML="Tumbling down the Rabit hole";
-        }else {
+          printWhereAliceWantedToGo.innerHTML="True";
+        
+        }else if (booleanCat){
 
-          printWhereAliceWantedToGo.innerHTML="Not following white rabit";
+          printWhereAliceWantedToGo.innerHTML="False";
+        
         }
-       
+        else if (booleanRabbit){
+
+          printWhereAliceWantedToGo.innerHTML="True";
+        
+        }
+        else if (booleanFollow){
+
+          printWhereAliceWantedToGo.innerHTML="False";
+        
+        }
+        else{
+
+        	printWhereAliceWantedToGo.innerHTML="You guessed the wrong answer";	
+        	
+        }
+
+
+    }  
+
+ function clearOtherInputs() {
+
+    
+        document.getElementById("girl").value="";
+		document.getElementById("cat").value="";
+		document.getElementById("rabbit").value="";
+		document.getElementById("follow").value="";
+        
+
+      
     }  
 
 </script>
@@ -81,34 +112,43 @@
 <body>
 
    <br />
-      <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+
+   <div class="center"> 
+
+         Alice is a girl  <input  id="girl" onfocus="clearOtherInputs()"/>  
+         <br />
+	
+         Alice is doesn't have a cat  <input  id="cat" onfocus="clearOtherInputs()" /> 
 
          <br />
-
-            <br />
-               <br />
-                  <br />
-                     <br />
-                        <br />
-                           <br />
-                              <br />
-
-    <div class="center"> 
-
-         <input  id="choice" />
          
-         <button class="content" onclick="rabitHoleClick()">Choice</button>
+         Alice is curious about the rabbit  <input  id="rabbit" onfocus="clearOtherInputs()" />  
+         
+         <br />
 
-          <br />
-                     <br />
-                        <br />
-                           <br />
-                              <br />
+         Alice is not going to follow the white rabbit  <input  id="follow" onfocus="clearOtherInputs()" /> 
+         <br />
 
-                                
-             <div class="backdrop" >
-             <div id="printWhereAliceWantedToGo" class="text multiply">Make a choice for Alice</div>
-             </div>
+
+         <button class="content" onclick="rabitHoleClick()">Check True or false</button>
+
+         <br />
+         <br />
+         <br />
+         <br />
+         <br />
+         <div class="backdrop" >
+         <div id="printWhereAliceWantedToGo" class="text multiply">Type in true or false</div>
+         </div>
     </div>
 
 </body>
